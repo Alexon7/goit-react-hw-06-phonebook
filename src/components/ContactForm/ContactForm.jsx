@@ -1,16 +1,20 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Wrapper, Input, Label, Button } from './ContactForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const ContactForm = ({ onFormSubmit }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  // const [name, setName] = useState('');
+  const { name } = useSelector(state => state);
+  // const [number, setNumber] = useState('');
+  const { number } = useSelector(state => state);
+  const dispatch = useDispatch();
 
   const inputChange = event => {
     const { name, value } = event.currentTarget;
     if (name === 'name') {
-      setName(value);
+      dispatch(value);
     } else {
-      setNumber(value);
+      dispatch(value);
     }
   };
 
