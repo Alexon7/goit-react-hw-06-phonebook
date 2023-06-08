@@ -26,7 +26,9 @@ export const ContactForm = () => {
       number,
       id: nanoid(),
     };
-    const isAtList = contacts.find(contact => contact.name === name);
+    const isAtList = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
     if (isAtList) {
       alert('Already in list');
       return;
