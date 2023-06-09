@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { addContact } from 'redux/contactsSlice';
 import { Wrapper, Input, Label, Button } from './ContactForm.styled';
@@ -7,15 +8,19 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
 
-  let name = '';
-  let number = '';
+  // let name = '';
+  // let number = '';
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const inputChange = event => {
     if (event.target.name === 'name') {
-      name = event.target.value;
+      // name = event.target.value;
+      setName(event.target.value);
     }
     if (event.target.name === 'number') {
-      number = event.target.value;
+      // number = event.target.value;
+      setNumber(event.target.value);
     }
   };
 
