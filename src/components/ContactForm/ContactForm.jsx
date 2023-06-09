@@ -26,11 +26,16 @@ export const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (name.trim() === '') {
+      alert('Please enter a name');
+      return;
+    }
     const contact = {
       name,
       number,
       id: nanoid(),
     };
+
     const isAtList = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
